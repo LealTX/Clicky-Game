@@ -4,7 +4,7 @@ import images from "../../images.json";
 import MemoryCard from '../MemoryCard';
 import "./main.css";
 
-class MainGameContainer extends Component {
+class MainContainer extends Component {
 	state = {
 		images,
 		message: "Click Heros to Start!",
@@ -22,7 +22,7 @@ class MainGameContainer extends Component {
 			});
 			return this.setState({
 				image: imageOrder.sort(() => Math.random() - 0.5),
-				message: "You Guessed Incorrectly!",
+				message: "Wrong Guess!",
 				score: 0
 			})
 		}
@@ -39,7 +39,7 @@ class MainGameContainer extends Component {
 
 			return this.setState({
 				image: imageOrder.sort(() => Math.random() - 0.5),
-				message: "You Guessed Correctly!",
+				message: "You Guessed Right!",
 				score: newScore,
 				topScore: newTopScore,
 			})
@@ -48,7 +48,7 @@ class MainGameContainer extends Component {
 
 	render() {
 		return (
-			<div className="container-fluid mainCardContainer">
+			<div className="container-fluid">
 			<div className="gameMessage text-center">
 						<p>{this.state.message}</p>
 					</div>
@@ -76,4 +76,4 @@ class MainGameContainer extends Component {
 	}
 };
 
-export default MainGameContainer;
+export default MainContainer;
